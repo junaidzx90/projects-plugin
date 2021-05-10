@@ -118,14 +118,29 @@ class Projects_Plugin_Public {
 	}
 
 	// Archive page
-	public function pp_archive_project_view(){
+	public function pp_archive_project_view($atts){
+
+		$atts = shortcode_atts(
+			array(
+				'show' => '',
+			), $atts, 'pp_projects' 
+		);
+
+		// Default Limits
+		$limit = 10;
+		if($atts){
+			if($atts['show'] && $atts['show'] != ""){
+				$limit = intval($atts['show']);
+			}
+		}
+
 		$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 		$args = array(
 			'post_type' => 'ppprojects',
 			'post_status'    => 'publish',
 			'order'     => 'DESC',
 			'paged'     => $paged,
-			'posts_per_page'     => 10,
+			'posts_per_page'     => $limit,
 			'order_by'     => 'date'
 		);
 
