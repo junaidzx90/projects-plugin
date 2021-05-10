@@ -163,6 +163,10 @@ class Projects_Plugin {
 		// Registering options
 		$this->loader->add_action( 'admin_init', $plugin_admin, 'register_pp_options' );
 
+		// ppprojects_reset_colors
+		$this->loader->add_action("wp_ajax_ppprojects_reset_colors", $plugin_admin, "ppprojects_reset_colors");
+		$this->loader->add_action("wp_ajax_nopriv_ppprojects_reset_colors", $plugin_admin, "ppprojects_reset_colors");
+
 	}
 
 	/**

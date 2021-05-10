@@ -68,10 +68,6 @@ class Projects_Plugin_Admin {
 
 		// Register Meta box for generating Shortcode
 		add_action("add_meta_boxes",array($this, "pp_text_fields"));
-
-		// ppprojects_reset_colors
-		add_action("wp_ajax_ppprojects_reset_colors", "ppprojects_reset_colors");
-		add_action("wp_ajax_nopriv_ppprojects_reset_colors", "ppprojects_reset_colors");
 	}
 
 	/**
