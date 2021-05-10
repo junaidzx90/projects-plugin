@@ -31,6 +31,26 @@ if ( ! defined( 'WPINC' ) ) {
 }
 
 /**
+ * Detect plugin.
+ */
+include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+// check for plugin using plugin name
+if ( !is_plugin_active( 'classic-editor/classic-editor.php' ) ) {
+    add_action( 'admin_notices', 'pp_project_admin_noticess' );
+}
+
+function pp_project_admin_noticess(){
+    $message = sprintf(
+        /* translators: 1: Plugin Name 2: classic-editor */
+        print_r( '%1$s requires <a href="https://wordpress.org/plugins/classic-editor/">%2$s</a> to be installed and activated.', 'projects-plugin' ),
+        '<strong>' . esc_html__( 'Projects Plugin', 'projects-plugin' ) . '</strong>',
+        '<strong>' . esc_html__( 'Classic Editor', 'projects-plugin' ) . '</strong>'
+    );
+
+    printf( '<div class="notice notice-warning"><p>%1$s</p></div>', $message );
+}
+
+/**
  * Currently plugin version.
  * Start at version 1.0.0 and use SemVer - https://semver.org
  * Rename this for your plugin and update it as you release new versions.
