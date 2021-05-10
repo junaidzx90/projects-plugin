@@ -68,6 +68,19 @@ class Projects_Plugin_Admin {
 
 		// Register Meta box for generating Shortcode
 		add_action("add_meta_boxes",array($this, "pp_text_fields"));
+
+		// ppprojects_reset_colors
+		add_action("wp_ajax_ppprojects_reset_colors", "ppprojects_reset_colors");
+		add_action("wp_ajax_nopriv_ppprojects_reset_colors", "ppprojects_reset_colors");
+	}
+
+	// Reset color button action through ajax
+	function ppprojects_reset_colors(){
+		delete_option( 'pp_projects_project_bg' );
+		delete_option( 'pp_projects_title_color' );
+		delete_option( 'pp_projects_text_color' );
+		echo 'Success';
+		wp_die();
 	}
 
 	/**
@@ -78,6 +91,9 @@ class Projects_Plugin_Admin {
 		wp_register_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/projects-plugin-admin.css', array(), $this->version, 'all' );
 		// Register Script
 		wp_register_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/projects-plugin-admin.js', array('jquery'), $this->version, true );
+		wp_localize_script( $this->plugin_name, 'admin_ajax_action', array(
+			'ajaxurl' => admin_url( 'admin-ajax.php' )
+		) );
 	}
 
 	/**
