@@ -65,54 +65,6 @@ class Projects_Plugin_Admin {
 		
 		// Changing Excerpt Field Title
 		add_filter( 'gettext', array($this, 'pp_excerpt_title_to_shortdescription'), 10, 2 );
-		// Managing projects archive page
-		add_action( 'pre_get_posts', array($this,'pp_projects_archive_page') );
-	}
-
-	/**
-	 * Register the stylesheets for the admin area.
-	 *
-	 * @since    1.0.0
-	 */
-	public function enqueue_styles() {
-
-		/**
-		 * This function is provided for demonstration purposes only.
-		 *
-		 * An instance of this class should be passed to the run() function
-		 * defined in Projects_Plugin_Loader as all of the hooks are defined
-		 * in that particular class.
-		 *
-		 * The Projects_Plugin_Loader will then create the relationship
-		 * between the defined hooks and the functions defined in this
-		 * class.
-		 */
-
-		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/projects-plugin-admin.css', array(), $this->version, 'all' );
-
-	}
-
-	/**
-	 * Register the JavaScript for the admin area.
-	 *
-	 * @since    1.0.0
-	 */
-	public function enqueue_scripts() {
-
-		/**
-		 * This function is provided for demonstration purposes only.
-		 *
-		 * An instance of this class should be passed to the run() function
-		 * defined in Projects_Plugin_Loader as all of the hooks are defined
-		 * in that particular class.
-		 *
-		 * The Projects_Plugin_Loader will then create the relationship
-		 * between the defined hooks and the functions defined in this
-		 * class.
-		 */
-
-		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/projects-plugin-admin.js', array( 'jquery' ), $this->version, false );
-
 	}
 
 	/**
@@ -230,12 +182,5 @@ class Projects_Plugin_Admin {
 			}
 		}
 		return $translation;
-	}
-
-	// Managing archive page
-	function pp_projects_archive_page( $query ) {
-		if(is_post_type_archive( 'ppprojects' )){
-			
-		}
 	}
 }

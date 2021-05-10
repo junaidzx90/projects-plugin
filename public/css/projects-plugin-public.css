@@ -2,11 +2,15 @@
  * All of the CSS for your public-facing functionality should be
  * included in this file.
  */
+ /* Default theme title */
  h1{
      margin-bottom: 10px;
      border-bottom: 1px solid #ddd;
      padding-bottom: 5px;
  }
+  /*//Default theme title */
+
+  
  #pp_post__wrap{
      margin: 0;
      padding: 0;

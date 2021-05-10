@@ -75,15 +75,6 @@ class Projects_Plugin_Public {
 		wp_register_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/projects-plugin-public.css', array(), $this->version, 'all' );
 	}
 
-	/**
-	 * Register the JavaScript for the public-facing side of the site.
-	 *
-	 * @since    1.0.0
-	 */
-	public function enqueue_scripts() {
-		//wp_register_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/projects-plugin-single.js', array( 'jquery' ), $this->version, false );
-	}
-
 	// Adding body class for compatible with other plugins
 	function pp_body_class( $classes ) {
 		$classes[] = 'pp_post__view';

@@ -154,9 +154,6 @@ class Projects_Plugin {
 
 		$plugin_admin = new Projects_Plugin_Admin( $this->get_plugin_name(), $this->get_version() );
 
-		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
-		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
-
 		// This hook for all admin actions
 		$this->loader->add_action( 'init', $plugin_admin, 'pp_admin_hooks' );
 
@@ -177,7 +174,6 @@ class Projects_Plugin {
 		$plugin_public = new Projects_Plugin_Public( $this->get_plugin_name(), $this->get_version() );
 
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
-		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
 
 		// This hook for all public related actions ( I used this INIT hook in here, because all output will be initialize from here)
 		$this->loader->add_action( 'init', $plugin_public, 'pp_public_hooks' );
