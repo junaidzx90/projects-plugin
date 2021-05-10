@@ -3,4 +3,4 @@
  * included in this file.
  */
  p.submit { display: inline-block; }
- button#rest_color { padding: 7px 10px; background: red; border: none; outline: none; border-radius: 3px; margin-left: 10px; color: #fff; cursor: pointer; opacity: .7; } button#rest_color:hover{ opacity: 1;}
+ button#reset_color { padding: 7px 10px; background: red; border: none; outline: none; border-radius: 3px; margin-left: 10px; color: #fff; cursor: pointer; opacity: .7; } button#reset_color:hover{ opacity: 1;}

@@ -25,5 +25,5 @@ do_settings_fields( 'pp_projects_options', 'pp_projects_options_api' );
 
 echo '</table>';
 submit_button();
-echo '<button id="rest_color">Reset</button>';
+echo '<button id="reset_color">Reset</button>';
 echo '</form>';

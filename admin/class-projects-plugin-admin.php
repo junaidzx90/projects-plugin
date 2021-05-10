@@ -74,15 +74,6 @@ class Projects_Plugin_Admin {
 		add_action("wp_ajax_nopriv_ppprojects_reset_colors", "ppprojects_reset_colors");
 	}
 
-	// Reset color button action through ajax
-	function ppprojects_reset_colors(){
-		delete_option( 'pp_projects_project_bg' );
-		delete_option( 'pp_projects_title_color' );
-		delete_option( 'pp_projects_text_color' );
-		echo 'Success';
-		wp_die();
-	}
-
 	/**
 	 * Register admin Style
 	 */
@@ -149,6 +140,15 @@ class Projects_Plugin_Admin {
 		wp_enqueue_style($this->plugin_name);
 		wp_enqueue_script($this->plugin_name);
 		require_once plugin_dir_path( __FILE__ )."partials/projects-plugin-admin-display.php";
+	}
+
+	// Reset color button action through ajax
+	function ppprojects_reset_colors(){
+		delete_option( 'pp_projects_project_bg' );
+		delete_option( 'pp_projects_title_color' );
+		delete_option( 'pp_projects_text_color' );
+		echo 'Success';
+		die;
 	}
 
 	/**
