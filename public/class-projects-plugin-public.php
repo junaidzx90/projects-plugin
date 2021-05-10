@@ -118,9 +118,14 @@ class Projects_Plugin_Public {
 
 	// Archive page
 	public function pp_archive_project_view(){
+		$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 		$args = array(
 			'post_type' => 'ppprojects',
-			'post_status'    => 'publish'
+			'post_status'    => 'publish',
+			'order'     => 'DESC',
+			'paged'     => $paged,
+			'posts_per_page'     => 1,
+			'order_by'     => 'date'
 		);
 
 		$projects = new WP_Query($args);
@@ -132,6 +137,23 @@ class Projects_Plugin_Public {
 				// Require html dom with dynamic contents
 				include plugin_dir_path( __FILE__ ).'partials/projects-plugin-archive.php';
 			}
+
+			echo '<div class="pagination"> <div class="paginate">';
+			if($projects->max_num_pages > 1){
+				global $wp_query;
+
+				$big = 999999999; // need an unlikely integer
+				$translated = __( 'Page', $this->plugin_name ); // Supply translatable string
+				
+				echo paginate_links( array(
+					'base' => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
+					'format' => '?paged=%#%',
+					'current' => max( 1, get_query_var('paged') ),
+					'total' => $projects->max_num_pages,
+						'before_page_number' => '<span class="screen-reader-text">'.$translated.' </span>'
+				) );
+			}
+			echo '</div></div>';
 			wp_reset_query(  );
 			return ob_get_clean();
 		}

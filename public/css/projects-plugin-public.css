@@ -70,6 +70,41 @@
     border-radius: 3px;
 }
 
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin: 30px 0px;
+}
+a.page-numbers{
+    border: 1px solid #0288d1;
+    min-width: 20px;
+    display: inline-block;
+    text-align: center;
+    line-height: 20px;
+    color: #0288d1;
+    border-radius: 3px;
+    margin-right: 3px;
+    padding: 3px 10px;
+}
+a.page-numbers:hover{
+    background-color: #0288d1;
+    transition: .3s;
+    color: #fff;
+}
+span.page-numbers.current {
+    border: 1px solid #0288d1;
+    background: #0288d1;
+    min-width: 20px;
+    display: inline-block;
+    text-align: center;
+    line-height: 20px;
+    color: #fff;
+    border-radius: 3px;
+    margin-right: 3px;
+    padding: 3px 10px;
+}
+
 @media only screen and (max-width: 680px) {
     #pp_post__wrap #boxed__view .pp_post .pp_body {
         margin-top: 0px;
