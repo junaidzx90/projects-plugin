@@ -1,4 +1,13 @@
 jQuery(function ($) {
+
+    $('#pp_paginate_visibility').on('click', function () {
+        if (!$(this).val() || $(this).val() == 'unchecked') {
+            $(this).val('checked');
+        } else {
+            $(this).val('unchecked');
+        }
+    });
+
     $('#reset_color').on('click', function (e) {
         e.preventDefault();
        $.ajax({

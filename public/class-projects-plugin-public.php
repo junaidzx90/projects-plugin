@@ -123,11 +123,11 @@ class Projects_Plugin_Public {
 		$atts = shortcode_atts(
 			array(
 				'show' => '',
-			), $atts, 'pp_projects' 
+			), $atts, 'pp_projects'
 		);
 
 		// Default Limits
-		$limit = 10;
+		$limit = get_option( 'pp_paginate_limit', 10 );
 		if($atts){
 			if($atts['show'] && $atts['show'] != ""){
 				$limit = intval($atts['show']);
@@ -156,22 +156,25 @@ class Projects_Plugin_Public {
 				include plugin_dir_path( __FILE__ ).'partials/projects-plugin-archive.php';
 			}
 
-			echo '<div class="pagination"> <div class="paginate">';
-			if($projects->max_num_pages > 1){
-				global $wp_query;
-
-				$big = 999999999; // need an unlikely integer
-				$translated = __( 'Page', $this->plugin_name ); // Supply translatable string
-				
-				echo paginate_links( array(
-					'base' => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
-					'format' => '?paged=%#%',
-					'current' => max( 1, get_query_var('paged') ),
-					'total' => $projects->max_num_pages,
-						'before_page_number' => '<span class="screen-reader-text">'.$translated.' </span>'
-				) );
+			if(get_option('pp_paginate_visibility', false) == 'checked'){
+				echo '<div class="pagination"> <div class="paginate">';
+				if($projects->max_num_pages > 1){
+					global $wp_query;
+	
+					$big = 999999999; // need an unlikely integer
+					$translated = __( 'Page', $this->plugin_name ); // Supply translatable string
+					
+					echo paginate_links( array(
+						'base' => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
+						'format' => '?paged=%#%',
+						'current' => max( 1, get_query_var('paged') ),
+						'total' => $projects->max_num_pages,
+							'before_page_number' => '<span class="screen-reader-text">'.$translated.' </span>'
+					) );
+				}
+				echo '</div></div>';
 			}
-			echo '</div></div>';
+			
 			wp_reset_query(  );
 			return ob_get_clean();
 		}

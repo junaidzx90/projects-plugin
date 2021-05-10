@@ -28,5 +28,6 @@ submit_button();
 echo '<button id="reset_color">Reset</button>';
 echo '</form>';
 
-echo '<h3 class="shortcode_title">All Projects in single page</h3>';
-echo '<input type="text" readonly value="[pp_projects]">';
+echo '<h3 class="shortcode_title">Custom View</h3>';
+echo '<input type="text" readonly value="[pp_projects show=\'5\']">';
+echo '<p><strong>Remember:</strong> If you want to see all projects, then use the shortcode without parameter <strong>[pp_projects]</strong>.</p>';

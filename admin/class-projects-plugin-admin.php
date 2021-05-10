@@ -107,6 +107,14 @@ class Projects_Plugin_Admin {
 		//pp_projects_text_color
 		add_settings_field( 'pp_projects_text_color', 'Text Color', array($this,'pp_projects_text_color_func'), 'pp_projects_options', 'pp_projects_options_api');
 		register_setting( 'pp_projects_options_api', 'pp_projects_text_color');
+
+		//pp_paginate_visibility
+		add_settings_field( 'pp_paginate_visibility', 'Paginate Visibilities', array($this,'pp_paginate_visibility_func'), 'pp_projects_options', 'pp_projects_options_api');
+		register_setting( 'pp_projects_options_api', 'pp_paginate_visibility');
+
+		//pp_paginate_limit
+		add_settings_field( 'pp_paginate_limit', 'Pagination Limits', array($this,'pp_paginate_limit_func'), 'pp_projects_options', 'pp_projects_options_api');
+		register_setting( 'pp_projects_options_api', 'pp_paginate_limit');
 	}
 
 	// Register project field for showing project short code
@@ -122,15 +130,27 @@ class Projects_Plugin_Admin {
 
 	// Settings option post bg callback
 	public function pp_projects_project_bg_func(){
-		echo '<input type="color" name="pp_projects_project_bg" value="'.(get_option('pp_projects_project_bg')?get_option('pp_projects_project_bg'):'#ffffff').'">';
+		echo '<input type="color" name="pp_projects_project_bg" value="'.get_option('pp_projects_project_bg','#ffffff').'">';
 	}
+
 	// Settings option title color callback
 	public function pp_projects_title_color_func(){
-		echo '<input type="color" name="pp_projects_title_color" value="'.(get_option('pp_projects_title_color')?get_option('pp_projects_title_color'):'#0274be').'">';
+		echo '<input type="color" name="pp_projects_title_color" value="'.get_option('pp_projects_title_color','#0274be').'">';
 	}
+
 	// Settings option text color callback
 	public function pp_projects_text_color_func(){
-		echo '<input type="color" name="pp_projects_text_color" value="'.(get_option('pp_projects_text_color')?get_option('pp_projects_text_color'):'#3a3a3a').'">';
+		echo '<input type="color" name="pp_projects_text_color" value="'.get_option('pp_projects_text_color','#3a3a3a').'">';
+	}
+
+	// Settings option pagination visibility callback
+	public function pp_paginate_visibility_func(){
+		echo '<input id="pp_paginate_visibility" type="checkbox" '.get_option('pp_paginate_visibility','').' name="pp_paginate_visibility" value="'.get_option('pp_paginate_visibility','unchecked').'">';
+	}
+
+	// Settings option pagination limit callback
+	public function pp_paginate_limit_func(){
+		echo '<input type="number" name="pp_paginate_limit" value="'.get_option('pp_paginate_limit','10').'">';
 	}
 
 	// Callback for menupage
