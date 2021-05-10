@@ -124,7 +124,7 @@ class Projects_Plugin_Public {
 			'post_status'    => 'publish',
 			'order'     => 'DESC',
 			'paged'     => $paged,
-			'posts_per_page'     => 1,
+			'posts_per_page'     => 10,
 			'order_by'     => 'date'
 		);
 
