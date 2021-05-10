@@ -68,6 +68,16 @@ class Projects_Plugin_Admin {
 	}
 
 	/**
+	 * Register admin Style
+	 */
+	public function admin_enqueue_styles(){
+		// Register Style
+		wp_register_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/projects-plugin-admin.css', array(), $this->version, 'all' );
+		// Register Script
+		wp_register_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/projects-plugin-admin.js', array('jquery'), $this->version, true );
+	}
+
+	/**
 	 * Register Menu In menu List
 	 * @package MenuPage
 	 */
@@ -75,9 +85,42 @@ class Projects_Plugin_Admin {
 		add_menu_page( 'Projects plugin', 'Projects plugin', 'manage_options', 'ppprojects-menu', array($this,'ppprojects_menupage_display'), 'dashicons-text', 45 );
 	}
 
+	// Options api
+	public function register_pp_options(){
+		// For colors
+		add_settings_section( 'pp_projects_options_api', 'Form Background', '', 'pp_projects_options' );
+
+		//pp_projects_project_bg
+		add_settings_field( 'pp_projects_project_bg', 'Project Background', array($this,'pp_projects_project_bg_func'), 'pp_projects_options', 'pp_projects_options_api');
+		register_setting( 'pp_projects_options_api', 'pp_projects_project_bg');
+
+		//pp_projects_title_color
+		add_settings_field( 'pp_projects_title_color', 'Title Color', array($this,'pp_projects_title_color_func'), 'pp_projects_options', 'pp_projects_options_api');
+		register_setting( 'pp_projects_options_api', 'pp_projects_title_color');
+
+		//pp_projects_text_color
+		add_settings_field( 'pp_projects_text_color', 'Text Color', array($this,'pp_projects_text_color_func'), 'pp_projects_options', 'pp_projects_options_api');
+		register_setting( 'pp_projects_options_api', 'pp_projects_text_color');
+	}
+
+	// Settings option post bg callback
+	public function pp_projects_project_bg_func(){
+		echo '<input type="color" name="pp_projects_project_bg" value="'.(get_option('pp_projects_project_bg')?get_option('pp_projects_project_bg'):'#ffffff').'">';
+	}
+	// Settings option title color callback
+	public function pp_projects_title_color_func(){
+		echo '<input type="color" name="pp_projects_title_color" value="'.(get_option('pp_projects_title_color')?get_option('pp_projects_title_color'):'#3a3a3a').'">';
+	}
+	// Settings option text color callback
+	public function pp_projects_text_color_func(){
+		echo '<input type="color" name="pp_projects_text_color" value="'.(get_option('pp_projects_text_color')?get_option('pp_projects_text_color'):'#3a3a3a').'">';
+	}
+
 	// Callback for menupage
 	public function ppprojects_menupage_display(){
-		echo 'PROJECTS PLUGIN - General Settings';
+		wp_enqueue_style($this->plugin_name);
+		wp_enqueue_script($this->plugin_name);
+		require_once plugin_dir_path( __FILE__ )."partials/projects-plugin-admin-display.php";
 	}
 
 	/**

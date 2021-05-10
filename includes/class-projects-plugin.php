@@ -153,12 +153,15 @@ class Projects_Plugin {
 	private function define_admin_hooks() {
 
 		$plugin_admin = new Projects_Plugin_Admin( $this->get_plugin_name(), $this->get_version() );
-
+		// Admin scripts
+		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'admin_enqueue_styles' );
 		// This hook for all admin actions
 		$this->loader->add_action( 'init', $plugin_admin, 'pp_admin_hooks' );
 
 		// Registering menupage
 		$this->loader->add_action( 'admin_menu', $plugin_admin, 'pp_menupage_register' );
+		// Registering options
+		$this->loader->add_action( 'admin_init', $plugin_admin, 'register_pp_options' );
 
 	}
 

@@ -65,7 +65,7 @@ class Projects_Plugin_Public {
 		// Adding body class
 		add_filter( 'body_class', array($this, 'pp_body_class') );
 	}
-	
+
 	/**
 	 * Register the stylesheets for the public-facing side of the site.
 	 *
@@ -76,14 +76,14 @@ class Projects_Plugin_Public {
 	}
 
 	// Adding body class for compatible with other plugins
-	function pp_body_class( $classes ) {
+	public function pp_body_class( $classes ) {
 		$classes[] = 'pp_post__view';
 		return $classes;
 	}
 
-
 	// Single page view
 	public function pp_single_project_view($atts){
+		global $post;
 
 		if(!$atts){
 			exit;
