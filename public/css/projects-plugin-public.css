@@ -1,0 +1,100 @@
+/**
+ * All of the CSS for your public-facing functionality should be
+ * included in this file.
+ */
+ h1{
+     margin-bottom: 10px;
+     border-bottom: 1px solid #ddd;
+     padding-bottom: 5px;
+ }
+ #pp_post__wrap{
+     margin: 0;
+     padding: 0;
+     font-size: 16px;
+     min-width: 50%;
+     width: 100%;
+ }
+ #pp_post__wrap #boxed__view{
+    box-sizing: content-box;
+    padding: auto;
+ }
+ #pp_post__wrap #boxed__view .pp_post .pp_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    min-height: 190px;
+}
+ #pp_post__wrap #boxed__view .pp_post .pp_header .pp_left,#pp_post__wrap #boxed__view .pp_post .pp_header .pp_right{
+     width: 50%;
+ }
+ #pp_post__wrap #boxed__view .pp_post .pp_header .pp_right {
+    padding-left: 24px;
+}
+ #pp_post__wrap #boxed__view .pp_post .pp_header .pp_right h2.pp_title{
+     font-size: 24px;
+     margin-bottom: 8px;
+     margin: 0px;
+ }
+ #pp_post__wrap #boxed__view .pp_post .pp_header .pp_right p.pp_short_desc {
+    margin: 0px;
+    border-left: 2px solid #ddd;
+    padding: 0px;
+    margin: 10px 0px;
+    line-height: 1.5rem;
+    padding-left: 10px;
+}
+#pp_post__wrap #boxed__view .pp_post .pp_header .pp_right .pp_technologies {
+    border-top: 2px solid #ddd;
+    border-bottom: 2px solid #ddd;
+    align-self: self-end;
+    font-size: 12px;
+}
+
+#pp_post__wrap #boxed__view .pp_post .pp_body {
+    margin-top: 15px;
+}
+#pp_post__wrap #boxed__view .pp_post .pp_footer {
+    background: #ddd;
+    padding: 5px;
+    text-align: right;
+}
+
+/* Archive CSS */
+.pparchive.pp_post {
+    margin-bottom: 32px;
+    padding: 10px;
+    border-radius: 3px;
+}
+
+@media only screen and (max-width: 680px) {
+    #pp_post__wrap #boxed__view .pp_post .pp_body {
+        margin-top: 0px;
+    }
+    #pp_post__wrap #boxed__view .pp_post .pp_header {
+        min-height: auto;
+    }
+}
+@media only screen and (max-width: 480px) {
+    #pp_post__wrap #boxed__view .pp_post .pp_header {
+        flex-direction: column;
+    }
+    #pp_post__wrap #boxed__view .pp_post .pp_header .pp_left {
+        display: flex;
+        justify-content: center;
+    }
+    #pp_post__wrap #boxed__view .pp_post .pp_header .pp_left a{
+        display: inline-block;
+        display: flex;
+        flex: 1;
+    }
+    #pp_post__wrap #boxed__view .pp_post .pp_header .pp_left a img{
+        flex: 1;
+    }
+    #pp_post__wrap #boxed__view .pp_post .pp_header .pp_left, #pp_post__wrap #boxed__view .pp_post .pp_header .pp_right {
+        width: 100%;
+    }
+    #pp_post__wrap #boxed__view .pp_post .pp_header .pp_left, #pp_post__wrap #boxed__view .pp_post .pp_header .pp_right {
+        padding-left: 0;
+        margin-top: 14px;
+    }
+}
