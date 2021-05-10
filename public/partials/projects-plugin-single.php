@@ -25,7 +25,7 @@
                 <!-- Long Desc -->
                 <div class="pp_body">
                     <p class="pp_long_desc">
-                        <?php echo _e(the_content()) ?>
+                        <?php echo the_content(); ?>
                     </p>
                 </div><!-- /Long Desc -->
             </div> <!-- /Post -->

@@ -100,7 +100,6 @@ class Projects_Plugin_Public {
 			'post_status'    => 'publish',
 			'post__in'	=> [$atts['pp_id']]
 		);
-
 		global $wp_query;
 		$project = new WP_Query($args);
 		if($project->have_posts()){
@@ -111,9 +110,10 @@ class Projects_Plugin_Public {
 				// Require html dom with dynamic contents
 				require_once plugin_dir_path( __FILE__ )."partials/projects-plugin-single.php";
 			}
-			return ob_get_clean();
 			wp_reset_query(  );
+			return ob_get_clean();
 		}
+		
 	}
 
 	// Archive page
