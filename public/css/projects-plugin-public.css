@@ -77,9 +77,12 @@
     margin-bottom: 32px;
     padding: 10px;
     border-radius: 3px;
-    background-color: var(--pp_projects_project_bg) !important;
 }
-
+#pp_post__wrap #boxed__view .pp_post {
+    background-color: var(--pp_projects_project_bg) !important;
+    padding: 20px;
+    border-radius: 3px;
+}
 
 .pagination {
     display: flex;
