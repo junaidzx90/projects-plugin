@@ -86,24 +86,24 @@
     margin: 30px 0px;
 }
 a.page-numbers{
-    border: 1px solid var(--pp_projects_project_bg);
+    border: 1px solid var(--pp_projects_title_color);
     min-width: 20px;
     display: inline-block;
     text-align: center;
     line-height: 20px;
-    color: var(--pp_projects_project_bg);
+    color: var(--pp_projects_title_color);
     border-radius: 3px;
     margin-right: 3px;
     padding: 3px 10px;
 }
 a.page-numbers:hover{
-    background-color: var(--pp_projects_project_bg);
+    background-color: var(--pp_projects_title_color);
     transition: .3s;
     color: #fff;
 }
 span.page-numbers.current {
-    border: 1px solid var(--pp_projects_project_bg);
-    background: var(--pp_projects_project_bg);
+    border: 1px solid var(--pp_projects_title_color);
+    background: var(--pp_projects_title_color);
     min-width: 20px;
     display: inline-block;
     text-align: center;

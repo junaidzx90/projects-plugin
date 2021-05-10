@@ -109,11 +109,13 @@ class Projects_Plugin_Admin {
 		register_setting( 'pp_projects_options_api', 'pp_projects_text_color');
 	}
 
+	// Register project field for showing project short code
 	public function pp_text_fields(){
 		// Add meta box
 		add_meta_box("pp_shortcode", "Project Shortcode", array($this, "pp_shortcode_input_view_cb"), "ppprojects", "advanced", "high");
 	}
 
+	// Project shortcode field callback
 	public function pp_shortcode_input_view_cb($post){
 		echo '<input type="text" readonly class="widefat" name="pp_shortcode" placeholder="Shortcode" value="[pp_project pp_id=\''.$post->ID.'\']">';
 	}

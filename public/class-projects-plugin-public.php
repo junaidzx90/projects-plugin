@@ -84,7 +84,7 @@ class Projects_Plugin_Public {
 	// Single page view
 	public function pp_single_project_view($atts){
 		global $post;
-
+		// If id is not define then not will be exicute
 		if(!$atts){
 			exit;
 		}
@@ -115,7 +115,6 @@ class Projects_Plugin_Public {
 			wp_reset_query(  );
 			return ob_get_clean();
 		}
-		
 	}
 
 	// Archive page
@@ -162,5 +161,4 @@ class Projects_Plugin_Public {
 			return ob_get_clean();
 		}
 	}
-
 }
