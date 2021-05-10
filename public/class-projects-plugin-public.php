@@ -104,6 +104,8 @@ class Projects_Plugin_Public {
 		$project = new WP_Query($args);
 		if($project->have_posts()){
 			ob_start();
+			// Settings colors
+			require_once plugin_dir_path( __FILE__ )."partials/ppprojects-colors.php";
 			wp_enqueue_style($this->plugin_name);
 			while($project->have_posts()){
 				$project->the_post();
@@ -131,6 +133,8 @@ class Projects_Plugin_Public {
 		$projects = new WP_Query($args);
 		if($projects->have_posts()){
 			ob_start();
+			// Settings colors
+			require_once plugin_dir_path( __FILE__ )."partials/ppprojects-colors.php";
 			wp_enqueue_style($this->plugin_name);
 			while($projects->have_posts()){
 				$projects->the_post();

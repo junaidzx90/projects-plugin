@@ -124,7 +124,7 @@ class Projects_Plugin_Admin {
 	}
 	// Settings option title color callback
 	public function pp_projects_title_color_func(){
-		echo '<input type="color" name="pp_projects_title_color" value="'.(get_option('pp_projects_title_color')?get_option('pp_projects_title_color'):'#3a3a3a').'">';
+		echo '<input type="color" name="pp_projects_title_color" value="'.(get_option('pp_projects_title_color')?get_option('pp_projects_title_color'):'#0274be').'">';
 	}
 	// Settings option text color callback
 	public function pp_projects_text_color_func(){

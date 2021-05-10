@@ -38,6 +38,10 @@
      font-size: 24px;
      margin-bottom: 8px;
      margin: 0px;
+     color: var(--pp_projects_title_color) !important;
+ }
+ #pp_post__wrap #boxed__view .pp_post .pp_header .pp_right h2.pp_title a{
+     color: var(--pp_projects_title_color) !important;
  }
  #pp_post__wrap #boxed__view .pp_post .pp_header .pp_right p.pp_short_desc {
     margin: 0px;
@@ -46,6 +50,7 @@
     margin: 10px 0px;
     line-height: 1.5rem;
     padding-left: 10px;
+    color: var(--pp_projects_text_color) !important;
 }
 #pp_post__wrap #boxed__view .pp_post .pp_header .pp_right .pp_technologies {
     border-top: 2px solid #ddd;
@@ -53,9 +58,13 @@
     align-self: self-end;
     font-size: 12px;
 }
+#pp_post__wrap #boxed__view .pp_post .pp_header .pp_right .pp_technologies a{
+    color: var(--pp_projects_title_color) !important;
+}
 
 #pp_post__wrap #boxed__view .pp_post .pp_body {
     margin-top: 15px;
+    color: var(--pp_projects_text_color) !important;
 }
 #pp_post__wrap #boxed__view .pp_post .pp_footer {
     background: #ddd;
