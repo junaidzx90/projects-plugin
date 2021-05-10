@@ -65,12 +65,15 @@ class Projects_Plugin_Admin {
 		
 		// Changing Excerpt Field Title
 		add_filter( 'gettext', array($this, 'pp_excerpt_title_to_shortdescription'), 10, 2 );
+
+		// Register Meta box for generating Shortcode
+		add_action("add_meta_boxes",array($this, "pp_text_fields"));
 	}
 
 	/**
 	 * Register admin Style
 	 */
-	public function admin_enqueue_styles(){
+	public function enqueue_scripts(){
 		// Register Style
 		wp_register_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/projects-plugin-admin.css', array(), $this->version, 'all' );
 		// Register Script
@@ -101,6 +104,15 @@ class Projects_Plugin_Admin {
 		//pp_projects_text_color
 		add_settings_field( 'pp_projects_text_color', 'Text Color', array($this,'pp_projects_text_color_func'), 'pp_projects_options', 'pp_projects_options_api');
 		register_setting( 'pp_projects_options_api', 'pp_projects_text_color');
+	}
+
+	public function pp_text_fields(){
+		// Add meta box
+		add_meta_box("pp_shortcode", "Project Shortcode", array($this, "pp_shortcode_input_view_cb"), "ppprojects", "advanced", "high");
+	}
+
+	public function pp_shortcode_input_view_cb($post){
+		echo '<input type="text" readonly class="widefat" name="pp_shortcode" placeholder="Shortcode" value="[pp_project pp_id=\''.$post->ID.'\']">';
 	}
 
 	// Settings option post bg callback

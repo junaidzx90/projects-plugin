@@ -154,7 +154,7 @@ class Projects_Plugin {
 
 		$plugin_admin = new Projects_Plugin_Admin( $this->get_plugin_name(), $this->get_version() );
 		// Admin scripts
-		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'admin_enqueue_styles' );
+		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
 		// This hook for all admin actions
 		$this->loader->add_action( 'init', $plugin_admin, 'pp_admin_hooks' );
 

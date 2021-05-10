@@ -91,7 +91,7 @@
         display: flex;
         flex: 1;
     }
-    #pp_post__wrap #boxed__view .pp_post .pp_header .pp_left a img{
+    #pp_post__wrap #boxed__view .pp_post .pp_header .pp_left a img,#pp_post__wrap #boxed__view .pp_post .pp_header .pp_left img{
         flex: 1;
     }
     #pp_post__wrap #boxed__view .pp_post .pp_header .pp_left, #pp_post__wrap #boxed__view .pp_post .pp_header .pp_right {
