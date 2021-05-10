@@ -132,8 +132,8 @@ class Projects_Plugin_Public {
 				// Require html dom with dynamic contents
 				include plugin_dir_path( __FILE__ ).'partials/projects-plugin-archive.php';
 			}
-			return ob_get_clean();
 			wp_reset_query(  );
+			return ob_get_clean();
 		}
 	}
 
